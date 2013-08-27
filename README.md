@@ -2,6 +2,8 @@
 
 The bundle provides [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html) integration into [CKEditor](http://ckeditor.com/) for Symfony 2 projects.
 
+[![Build Status](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle.png?branch=master)](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle)
+
 ## Features
 
 * Browse files and images managed with SonataMediaBundle directly from the CKEditor UI
