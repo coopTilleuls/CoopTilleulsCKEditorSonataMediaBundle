@@ -59,6 +59,37 @@ ivory_ck_editor:
                 context: my-context # Optional, to upload in a custom context
 ```
 
+## Extending SonataMedia
+
+This bundle extends SonataMedia. So, if you want to extends SonataMedia, extends this bundle, not SonataMedia directly.
+
+### Using SonataEasyExtendsBundle
+
+Run the generate command on CoopTilleulsCKEditorSonataMediaBundle:
+
+```
+php app/console sonata:easy-extends:generate CoopTilleulsCKEditorSonataMediaBundle
+```
+
+### Directly
+
+Update your bundle file to specify CoopTilleulsCKEditorSonataMediaBundle as parent:
+
+```php
+// Acme\Bundle\MediaBundle\AcmeMediaBundle
+
+   /**
+     * {@inheritdoc}
+     */
+    public function getParent()
+    {
+        return 'CoopTilleulsCKEditorSonataMediaBundle';
+    }
+```
+
+If you want to customize `MediaAdminController` you must extends `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle.
+
+
 ## Usage without IvoryCKEditorBundle
 
 This bundle can be used with a custom install of CKEditor.
