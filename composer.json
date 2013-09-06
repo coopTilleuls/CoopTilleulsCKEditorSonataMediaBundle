@@ -17,7 +17,7 @@
         "sonata-project/media-bundle": "2.2.*@dev"
     },
     "suggest": {
-       "egeloen/ckeditor-bundle": "2.*"
+       "egeloen/ckeditor-bundle": "for easy Symfony integration"
     },
     "autoload": {
         "psr-0": { "CoopTilleuls\\Bundle\\CKEditorSonataMediaBundle": "" }
