@@ -92,6 +92,7 @@ class MediaAdminController extends BaseMediaAdminController
         $media->setBinaryContent($file);
 
         $mediaManager->save($media, $context, $provider);
+        $this->admin->createObjectSecurity($media);
 
         return $this->render($this->getTemplate('upload'), array(
             'action' => 'list',
