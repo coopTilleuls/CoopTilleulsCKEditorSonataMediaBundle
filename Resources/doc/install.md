@@ -7,7 +7,7 @@ Then, add CoopTilleulsCKEditorSonataMediaBundle and IvoryCKEditorBundle in your 
 ```json
 {
     "require": {
-        "tilleuls/ckeditor-sonata-mediabundle": "dev-master",
+        "tilleuls/ckeditor-sonata-media-bundle": "dev-master",
         "egeloen/ckeditor-bundle": "2.*"
     }
 }
