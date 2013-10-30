@@ -1,7 +1,7 @@
 {
     "name": "tilleuls/ckeditor-sonata-media-bundle",
     "type": "symfony-bundle",
-    "description": "Integrates SonataMediaBundle width CKEditor",
+    "description": "Integrates SonataMediaBundle with CKEditor",
     "keywords": ["media", "ckeditor", "upload", "file", "image", "sonata"],
     "homepage": "http://les-tilleuls.coop",
     "license": "MIT",
