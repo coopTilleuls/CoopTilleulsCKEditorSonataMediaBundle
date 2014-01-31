@@ -41,7 +41,7 @@ class MediaAdminController extends BaseMediaAdminController
     /**
      * Returns the response object associated with the browser action
      *
-     * @return @return               \Symfony\Bundle\FrameworkBundle\Controller\Response
+     * @return \Symfony\Component\HttpFoundation\Response
      * @throws AccessDeniedException
      */
     public function browserAction()
@@ -74,8 +74,18 @@ class MediaAdminController extends BaseMediaAdminController
         ));
     }
 
+    /**
+     * Returns the response object associated with the upload action
+     *
+     * @return \Symfony\Component\HttpFoundation\Response
+     * @throws AccessDeniedException
+     */
     public function uploadAction()
     {
+        if (false === $this->admin->isGranted('CREATE')) {
+            throw new AccessDeniedException();
+        }
+
         $mediaManager = $this->get('sonata.media.manager.media');
 
         $request = $this->getRequest();
