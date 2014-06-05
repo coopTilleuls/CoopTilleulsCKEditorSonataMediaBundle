@@ -18,48 +18,37 @@ file that was distributed with this source code.
 {% set _title        = block('title') %}
 {% set _breadcrumb   = block('breadcrumb') %}
 <!DOCTYPE html>
-<html class="no-js">
+<html {% block html_attributes %}class="no-js"{% endblock %}>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% block meta_tags %}
+            <meta charset="UTF-8">
+            <meta content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no' name='viewport'>
+        {% endblock %}
 
         {% block stylesheets %}
-            <!-- jQuery code -->
-            <link rel="stylesheet" href="{{ asset('bundles/sonatajquery/themes/flick/jquery-ui-1.8.16.custom.css') }}" media="all" />
 
-            <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/bootstrap/css/bootstrap.min.css') }}" media="all"  />
-            <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/bootstrap/css/bootstrap-responsive.min.css') }}" media="all" />
+            {% for stylesheet in admin_pool.getOption('stylesheets', []) %}
+                <link rel="stylesheet" type="text/css"  href="{{ asset(stylesheet) }}"  />
+            {% endfor %}
 
-            <!-- base application asset -->
-            <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/css/layout.css') }}" media="all" />
-            <link rel="stylesheet" href="{{ asset('bundles/sonataadmin/css/colors.css') }}" media="all" />
-            <style type="text/css">
-            body.sonata-bc {
-                padding-top: 0;
-            }
-            </style>
         {% endblock %}
 
         {% block javascripts %}
-            <script type="text/javascript">
+            <script>
                 window.SONATA_CONFIG = {
-                    CONFIRM_EXIT: {% if admin_pool is defined and admin_pool.getOption('confirm_exit') %}true{% else %}false{% endif %}
+                    CONFIRM_EXIT: {% if admin_pool is defined and admin_pool.getOption('confirm_exit') %}true{% else %}false{% endif %},
+                    USE_SELECT2: {% if admin_pool is defined and admin_pool.getOption('use_select2') %}true{% else %}false{% endif %},
+                    USE_ICHECK: {% if admin_pool is defined and admin_pool.getOption('use_icheck') %}true{% else %}false{% endif %}
                 };
                 window.SONATA_TRANSLATIONS = {
                     CONFIRM_EXIT:  '{{ 'confirm_exit'|trans({}, 'SonataAdminBundle')|escape('js') }}'
-               };
+                };
             </script>
-            <script src="{{ asset('bundles/sonatajquery/jquery-1.8.3.js') }}"></script>
-            <script src="{{ asset('bundles/sonatajquery/jquery-ui-1.8.23.js') }}"></script>
-            <script src="{{ asset('bundles/sonatajquery/jquery-ui-i18n.js') }}"></script>
 
-            <script src="{{ asset('bundles/sonataadmin/bootstrap/js/bootstrap.min.js') }}"></script>
-            <script src="{{ asset('bundles/sonataadmin/x-editable/js/bootstrap-editable.min.js') }}"></script>
+            {% for javascript in admin_pool.getOption('javascripts', []) %}
+            <script src="{{ asset(javascript) }}" type="text/javascript"></script>
+            {% endfor %}
 
-            <script src="{{ asset('bundles/sonataadmin/jquery/jquery.form.js') }}"></script>
-            {% if admin_pool is defined and admin_pool.getOption('confirm_exit') %}<script src="{{ asset('bundles/sonataadmin/jquery/jquery.confirmExit.js') }}"></script>{% endif %}
-            <script src="{{ asset('bundles/sonataadmin/base.js') }}"></script>
         {% endblock %}
 
         <title>
@@ -80,6 +69,7 @@ file that was distributed with this source code.
             {% endif%}
         </title>
     </head>
+
     <body class="sonata-bc {% if _side_menu is empty %}sonata-ba-no-side-menu{% endif %}">
         {# initialize block value #}
 
