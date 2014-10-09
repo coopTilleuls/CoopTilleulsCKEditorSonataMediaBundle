@@ -12,6 +12,7 @@
 namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller;
 
 use Sonata\MediaBundle\Controller\MediaAdminController as BaseMediaAdminController;
+use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
  * Adds browser and upload actions
