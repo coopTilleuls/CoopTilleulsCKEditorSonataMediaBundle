@@ -2,16 +2,9 @@
 
 If not already done, install and configure [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html).
 
-Then, add CoopTilleulsCKEditorSonataMediaBundle and IvoryCKEditorBundle in your `composer.json` file:
+Then, use [Composer](https://getcomposer.org/) to install CoopTilleulsCKEditorSonataMediaBundle and IvoryCKEditorBundle:
 
-```json
-{
-    "require": {
-        "tilleuls/ckeditor-sonata-media-bundle": "dev-master",
-        "egeloen/ckeditor-bundle": "2.*"
-    }
-}
-```
+    composer require tilleuls/ckeditor-sonata-media-bundle egeloen/ckeditor-bundle
 
 Register the bundle in your AppKernel:
 
@@ -67,9 +60,7 @@ This bundle extends SonataMedia. So, if you want to extends SonataMedia, extends
 
 Run the generate command on CoopTilleulsCKEditorSonataMediaBundle:
 
-```
-php app/console sonata:easy-extends:generate CoopTilleulsCKEditorSonataMediaBundle
-```
+    php app/console sonata:easy-extends:generate CoopTilleulsCKEditorSonataMediaBundle
 
 ### Directly
 
@@ -78,7 +69,7 @@ Update your bundle file to specify CoopTilleulsCKEditorSonataMediaBundle as pare
 ```php
 // Acme\Bundle\MediaBundle\AcmeMediaBundle
 
-   /**
+    /**
      * {@inheritdoc}
      */
     public function getParent()
@@ -88,7 +79,6 @@ Update your bundle file to specify CoopTilleulsCKEditorSonataMediaBundle as pare
 ```
 
 If you want to customize `MediaAdminController` you must extends `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle.
-
 
 ## Usage without IvoryCKEditorBundle
 
