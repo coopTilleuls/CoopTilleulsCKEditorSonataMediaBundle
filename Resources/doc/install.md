@@ -54,20 +54,14 @@ ivory_ck_editor:
 
 ## Extending SonataMedia
 
-This bundle extends SonataMedia. So, if you want to extends SonataMedia, extends this bundle, not SonataMedia directly.
+```
+php app/console sonata:easy-extends:generate --dest=src SonataMediaBundle
+```
 
-### Using SonataEasyExtendsBundle
-
-Run the generate command on CoopTilleulsCKEditorSonataMediaBundle:
-
-    php app/console sonata:easy-extends:generate CoopTilleulsCKEditorSonataMediaBundle
-
-### Directly
-
-Update your bundle file to specify CoopTilleulsCKEditorSonataMediaBundle as parent:
+Then update your ApplicationSonataMediaBundle:
 
 ```php
-// Acme\Bundle\MediaBundle\AcmeMediaBundle
+// Application\Sonata\MediaBundle\ApplicationSonataMediaBundle.php
 
     /**
      * {@inheritdoc}
