@@ -13,7 +13,7 @@
         }
     ],
     "require": {
-        "sonata-project/media-bundle": "~2.3"
+        "sonata-project/media-bundle": "^2.3 || ^3.0"
     },
     "suggest": {
        "egeloen/ckeditor-bundle": "for easy Symfony integration"
