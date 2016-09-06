@@ -15,6 +15,10 @@
     "require": {
         "sonata-project/media-bundle": "~2.3"
     },
+	"require-dev": {
+		"symfony/phpunit-bridge":       "~2.7|~3.0",
+		"phpunit/phpunit":              "~4.8|~5.0"
+	},
     "suggest": {
        "egeloen/ckeditor-bundle": "for easy Symfony integration"
     },

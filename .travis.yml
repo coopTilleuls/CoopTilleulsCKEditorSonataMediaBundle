@@ -1,11 +1,35 @@
 language: php
 
 php:
+  - 7.0
+  - 5.6
   - 5.3
-  - 5.4
-  - 5.5
+  - hhvm
+
+sudo: false
+
+cache:
+  directories:
+    - ~/.composer/cache/files
+
+matrix:
+  fast_finish: true
+  include:
+    - php: 5.3
+      env: COMPOSER_FLAGS="--prefer-lowest"
+    - php: 5.6
+      env: SONATA_MEDIA=~2.3
+  allow_failures:
+    - php: hhvm
+
+before_install:
+  - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then phpenv config-rm xdebug.ini; fi;
+  - if [[ "$TRAVIS_PHP_VERSION" != "hhvm" ]]; then echo "memory_limit=4096M" >> ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/travis.ini; fi;
 
 before_script:
-  - composer install --dev --prefer-source
+  - composer self-update
+  - if [ "$SONATA_MEDIA" != "" ]; then composer require "sonata-project/media-bundle:${SONATA_MEDIA}" --dev --no-update; fi;
+  - if [ "$COMPOSER_FLAGS" != "" ]; then composer update --prefer-dist --no-interaction --no-scripts $COMPOSER_FLAGS; fi;
+  - composer install --prefer-dist --no-interaction --no-scripts
 
-script: phpunit
+script: vendor/bin/phpunit
