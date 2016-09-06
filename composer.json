@@ -13,14 +13,14 @@
         }
     ],
     "require": {
-        "sonata-project/media-bundle": "~2.3"
+        "sonata-project/media-bundle": "~2.3|~3.0"
     },
-	"require-dev": {
-		"symfony/phpunit-bridge":       "~2.7|~3.0",
-		"phpunit/phpunit":              "~4.8|~5.0"
-	},
+    "require-dev": {
+        "symfony/phpunit-bridge":       "~2.7|~3.0",
+        "phpunit/phpunit":              "~4.8|~5.0"
+    },
     "suggest": {
-       "egeloen/ckeditor-bundle": "for easy Symfony integration"
+        "egeloen/ckeditor-bundle": "for easy Symfony integration"
     },
     "autoload": {
         "psr-0": { "CoopTilleuls\\Bundle\\CKEditorSonataMediaBundle": "" }
