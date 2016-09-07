@@ -44,14 +44,14 @@
                 {% if providers|length > 1 %}
                     <li><a><strong>{{ "label.select_provider"|trans({}, 'SonataMediaBundle') }}</strong></a></li>
 
-                    {% if not persistent_parameters.provider %}
+                    {% if (persistent_parameters.provider is not defined) or (not persistent_parameters.provider) %}
                         <li class="active"><a href="{{ admin.generateUrl('browser', {'context': persistent_parameters.context, 'provider': null}|merge(ckParameters)) }}">{{ "link.all_providers"|trans({}, 'SonataMediaBundle') }}</a></li>
                     {% else %}
                         <li><a href="{{ admin.generateUrl('browser', {'context': persistent_parameters.context, 'provider': null}|merge(ckParameters)) }}">{{ "link.all_providers"|trans({}, 'SonataMediaBundle') }}</a></li>
                     {% endif %}
 
                     {% for provider_name in providers %}
-                        {% if persistent_parameters.provider == provider_name%}
+                        {% if (persistent_parameters.provider is defined) and (persistent_parameters.provider == provider_name) %}
                             <li class="active"><a href="{{ admin.generateUrl('browser', {'context': persistent_parameters.context, 'provider': provider_name}|merge(ckParameters)) }}">{{ provider_name|trans({}, 'SonataMediaBundle') }}</a></li>
                         {% else %}
                             <li><a href="{{ admin.generateUrl('browser', {'context': persistent_parameters.context, 'provider': provider_name}|merge(ckParameters)) }}">{{ provider_name|trans({}, 'SonataMediaBundle') }}</a></li>
