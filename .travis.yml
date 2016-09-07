@@ -28,6 +28,7 @@ before_install:
 
 before_script:
   - composer self-update
+  - composer global require "hirak/prestissimo:^0.3"
   - if [ "$SONATA_MEDIA" != "" ]; then composer require "sonata-project/media-bundle:${SONATA_MEDIA}" --dev --no-update; fi;
   - if [ "$COMPOSER_FLAGS" != "" ]; then composer update --prefer-dist --no-interaction --no-scripts $COMPOSER_FLAGS; fi;
   - composer install --prefer-dist --no-interaction --no-scripts
