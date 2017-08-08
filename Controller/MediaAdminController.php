@@ -12,6 +12,7 @@
 namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller;
 
 use Sonata\MediaBundle\Controller\MediaAdminController as BaseMediaAdminController;
+use Symfony\Component\Form\FormView;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
@@ -64,7 +65,7 @@ class MediaAdminController extends BaseMediaAdminController
         $formView = $datagrid->getForm()->createView();
 
         // set the theme for the current Admin Form
-        $this->get('twig')->getExtension('form')->renderer->setTheme($formView, $this->admin->getFilterTheme());
+        $this->setFormTheme($formView, $this->admin->getFilterTheme()[0]);
 
         return $this->render($this->getTemplate('browser'), array(
             'action' => 'browser',
@@ -109,6 +110,29 @@ class MediaAdminController extends BaseMediaAdminController
             'action' => 'list',
             'object' => $media
         ));
+    }
+
+    /**
+     * Sets the admin form theme to form view. Used for compatibility between Symfony versions.
+     *
+     * @param FormView $formView
+     * @param string   $theme
+     */
+    protected function setFormTheme(FormView $formView, $theme)
+    {
+        $twig = $this->get('twig');
+
+        try {
+            $twig
+                ->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')
+                ->setTheme($formView, $theme);
+        } catch (\Twig_Error_Runtime $e) {
+            // BC for Symfony < 3.2 where this runtime does not exist
+            $twig
+                ->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')
+                ->renderer
+                ->setTheme($formView, $theme);
+        }
     }
 
 }
