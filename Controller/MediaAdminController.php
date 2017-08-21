@@ -120,17 +120,16 @@ class MediaAdminController extends BaseMediaAdminController
      */
     protected function setFormTheme(FormView $formView, $theme)
     {
+        /** @var \Twig_Environment $twig */
         $twig = $this->get('twig');
-
-        try {
-            $twig
-                ->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')
-                ->setTheme($formView, $theme);
-        } catch (\Twig_Error_Runtime $e) {
-            // BC for Symfony < 3.2 where this runtime does not exist
+        if ($twig->hasExtension('Symfony\Bridge\Twig\Extension\FormExtension')){
             $twig
                 ->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')
                 ->renderer
+                ->setTheme($formView, $theme);
+        }else{
+            $twig
+                ->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')
                 ->setTheme($formView, $theme);
         }
     }
