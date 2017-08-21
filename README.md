@@ -1,6 +1,6 @@
-# Sonata Media CKEditor integration
+# Sonata Media CKEditor Integration
 
-The bundle provides [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html) integration into [CKEditor](http://ckeditor.com/) for Symfony 2 projects.
+The bundle provides [SonataMediaBundle](https://sonata-project.org/bundles/media/master/doc/index.html) integration into [CKEditor](http://ckeditor.com/) for Symfony 2 projects.
 
 [![Build Status](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle.png?branch=master)](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle)
 
@@ -12,20 +12,13 @@ The bundle provides [SonataMediaBundle](http://sonata-project.org/bundles/media/
 
 ![Screenshot](Resources/doc/images/screenshot.png)
 
-## Doc
+## Docs
 
 1. [Installation](Resources/doc/install.md)
 2. [Architecture](Resources/doc/architecture.md)
 3. [Full configuration options](Resources/doc/configuration.md)
 
-## TODO
-
-* Create Behat tests
-
 ## Credits
 
-Created by [Kévin Dunglas](http://dunglas.fr) for [Les-Tilleuls.coop](http://les-tilleuls.coop).
-
-
-[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/coopTilleuls/cooptilleulsckeditorsonatamediabundle/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+Created by [Kévin Dunglas](https://dunglas.fr) for [Les-Tilleuls.coop](https://les-tilleuls.coop).
 
