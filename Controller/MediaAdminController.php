@@ -127,11 +127,12 @@ class MediaAdminController extends BaseMediaAdminController
                 ->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')
                 ->renderer
                 ->setTheme($formView, $theme);
-        }else{
-            $twig
-                ->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')
-                ->setTheme($formView, $theme);
+            return;
         }
+
+        $twig
+            ->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')
+            ->setTheme($formView, $theme);
     }
 
 }
