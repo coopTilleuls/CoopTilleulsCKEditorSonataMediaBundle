@@ -65,7 +65,7 @@ class MediaAdminController extends BaseMediaAdminController
         $formView = $datagrid->getForm()->createView();
 
         // set the theme for the current Admin Form
-        $this->setFormTheme($formView, $this->admin->getFilterTheme()[0]);
+        $this->setFormTheme($formView, $this->admin->getFilterTheme());
 
         return $this->render($this->getTemplate('browser'), array(
             'action' => 'browser',
