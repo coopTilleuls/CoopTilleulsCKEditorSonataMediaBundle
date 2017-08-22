@@ -1,6 +1,6 @@
 # Sonata Media CKEditor Integration
 
-The bundle provides [SonataMediaBundle](https://sonata-project.org/bundles/media/master/doc/index.html) integration into [CKEditor](http://ckeditor.com/) for Symfony 2 projects.
+The bundle provides [SonataMediaBundle](https://sonata-project.org/bundles/media/master/doc/index.html) integration into [CKEditor](http://ckeditor.com/) for Symfony projects.
 
 [![Build Status](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle.png?branch=master)](https://travis-ci.org/coopTilleuls/CoopTilleulsCKEditorSonataMediaBundle)
 

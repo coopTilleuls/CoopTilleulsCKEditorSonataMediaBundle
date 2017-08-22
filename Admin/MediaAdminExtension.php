@@ -11,19 +11,21 @@
 
 namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Admin;
 
-use Sonata\AdminBundle\Admin\AdminExtension;
+use Sonata\AdminBundle\Admin\AbstractAdminExtension;
+use Sonata\AdminBundle\Admin\AdminInterface;
+use Sonata\AdminBundle\Route\RouteCollection;
 
 /**
  * Adds browser and upload routes to the Admin
  *
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
-class MediaAdminExtension extends AdminExtension
+class MediaAdminExtension extends AbstractAdminExtension
 {
     /**
      * {@inheritDoc}
      */
-    public function configureRoutes(\Sonata\AdminBundle\Admin\AdminInterface $admin, \Sonata\AdminBundle\Route\RouteCollection $collection)
+    public function configureRoutes(AdminInterface $admin, RouteCollection $collection)
     {
         $collection->add('browser', 'browser');
         $collection->add('upload', 'upload');
