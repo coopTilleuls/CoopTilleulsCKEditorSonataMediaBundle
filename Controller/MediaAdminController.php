@@ -127,7 +127,14 @@ class MediaAdminController extends BaseMediaAdminController
                 ->renderer->setTheme($formView, $theme);
             return;
         }
-        $twig->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->setTheme($formView, $theme);
+        
+        // BC for Symfony < 3.4 where runtime should be TwigRenderer
+        if (!method_exists('Symfony\Bridge\Twig\Command\DebugCommand', 'getLoaderPaths')) {
+            $twig->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->setTheme($formView, $theme);
+            return;
+        }
+
+        $twig->getRuntime('Symfony\Component\Form\FormRenderer')->setTheme($formView, $theme);
     }
 
 }
