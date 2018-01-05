@@ -21,7 +21,7 @@ class CoopTilleulsCKEditorSonataMediaBundle extends Bundle
     /**
      * Allows to extends the MediaAdmin controller.
      *
-     * {@inheritDoc}
+     * {@inheritdoc}
      */
     public function getParent()
     {

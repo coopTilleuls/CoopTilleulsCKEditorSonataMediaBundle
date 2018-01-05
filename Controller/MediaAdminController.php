@@ -13,20 +13,21 @@ namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller;
 
 use Sonata\MediaBundle\Controller\MediaAdminController as BaseMediaAdminController;
 use Symfony\Component\Form\FormView;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Exception\AccessDeniedException;
 
 /**
- * Adds browser and upload actions
+ * Adds browser and upload actions.
  *
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
 class MediaAdminController extends BaseMediaAdminController
 {
-
     /**
-     * Gets a template
+     * Gets a template.
      *
-     * @param  string $name
+     * @param string $name
+     *
      * @return string
      */
     private function getTemplate($name)
@@ -41,9 +42,10 @@ class MediaAdminController extends BaseMediaAdminController
     }
 
     /**
-     * Returns the response object associated with the browser action
+     * Returns the response object associated with the browser action.
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
      * @throws AccessDeniedException
      */
     public function browserAction()
@@ -72,14 +74,15 @@ class MediaAdminController extends BaseMediaAdminController
             'form' => $formView,
             'datagrid' => $datagrid,
             'formats' => $formats,
-            'base_template' => $this->getTemplate('layout')
+            'base_template' => $this->getTemplate('layout'),
         ));
     }
 
     /**
-     * Returns the response object associated with the upload action
+     * Returns the response object associated with the upload action.
      *
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @return Response
+     *
      * @throws AccessDeniedException
      */
     public function uploadAction()
@@ -108,7 +111,7 @@ class MediaAdminController extends BaseMediaAdminController
 
         return $this->render($this->getTemplate('upload'), array(
             'action' => 'list',
-            'object' => $media
+            'object' => $media,
         ));
     }
 
@@ -121,20 +124,22 @@ class MediaAdminController extends BaseMediaAdminController
     private function setFormTheme(FormView $formView, $theme)
     {
         $twig = $this->get('twig');
+
         // BC for Symfony < 3.2 where this runtime does not exists
         if (!method_exists('Symfony\Bridge\Twig\AppVariable', 'getToken')) {
             $twig->getExtension('Symfony\Bridge\Twig\Extension\FormExtension')
                 ->renderer->setTheme($formView, $theme);
+
             return;
         }
-        
+
         // BC for Symfony < 3.4 where runtime should be TwigRenderer
         if (!method_exists('Symfony\Bridge\Twig\Command\DebugCommand', 'getLoaderPaths')) {
             $twig->getRuntime('Symfony\Bridge\Twig\Form\TwigRenderer')->setTheme($formView, $theme);
+
             return;
         }
 
         $twig->getRuntime('Symfony\Component\Form\FormRenderer')->setTheme($formView, $theme);
     }
-
 }
