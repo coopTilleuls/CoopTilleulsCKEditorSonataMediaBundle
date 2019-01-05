@@ -72,7 +72,7 @@ Then update your ApplicationSonataMediaBundle:
     }
 ```
 
-If you want to customize `MediaAdminController` you must extends `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle.
+If you want to customize `MediaAdminController` you must extends `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle, and set parameter `sonata.media.admin.media.controller` to match your controller.
 
 ## Usage without IvoryCKEditorBundle
 

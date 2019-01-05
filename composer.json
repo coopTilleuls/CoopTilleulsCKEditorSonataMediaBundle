@@ -14,7 +14,7 @@
     ],
     "require": {
         "sonata-project/media-bundle": "~3.0",
-        "sonata-project/admin-bundle": "~3.1"
+        "sonata-project/admin-bundle": "~3.40"
     },
     "require-dev": {
         "symfony/phpunit-bridge":       "~2.7|~3.0",
