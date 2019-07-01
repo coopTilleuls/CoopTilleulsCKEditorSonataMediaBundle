@@ -36,9 +36,9 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('templates')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('layout')->defaultValue('CoopTilleulsCKEditorSonataMediaBundle::layout.html.twig')->cannotBeEmpty()->end()
-                        ->scalarNode('browser')->defaultValue('CoopTilleulsCKEditorSonataMediaBundle:MediaAdmin:browser.html.twig')->cannotBeEmpty()->end()
-                        ->scalarNode('upload')->defaultValue('CoopTilleulsCKEditorSonataMediaBundle:MediaAdmin:upload.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('layout')->defaultValue('@CoopTilleulsCKEditorSonataMedia/layout.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('browser')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/browser.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('upload')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/upload.html.twig')->cannotBeEmpty()->end()
                     ->end()
             ->end()
         ;

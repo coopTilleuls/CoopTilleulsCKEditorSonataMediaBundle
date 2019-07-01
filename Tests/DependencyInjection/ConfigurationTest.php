@@ -27,8 +27,8 @@ class ConfigurationTest extends \PHPUnit_Framework_TestCase
         $this->assertArrayHasKey('browser', $config['templates']);
         $this->assertArrayHasKey('upload', $config['templates']);
 
-        $this->assertEquals('CoopTilleulsCKEditorSonataMediaBundle::layout.html.twig', $config['templates']['layout']);
-        $this->assertEquals('CoopTilleulsCKEditorSonataMediaBundle:MediaAdmin:browser.html.twig', $config['templates']['browser']);
-        $this->assertEquals('CoopTilleulsCKEditorSonataMediaBundle:MediaAdmin:upload.html.twig', $config['templates']['upload']);
+        $this->assertEquals('@CoopTilleulsCKEditorSonataMedia/layout.html.twig', $config['templates']['layout']);
+        $this->assertEquals('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/browser.html.twig', $config['templates']['browser']);
+        $this->assertEquals('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/upload.html.twig', $config['templates']['upload']);
     }
 }

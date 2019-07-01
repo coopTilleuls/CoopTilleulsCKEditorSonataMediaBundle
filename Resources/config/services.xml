@@ -6,6 +6,7 @@
 
     <parameters>
         <parameter key="coop_tilleuls_ck_editor_sonata_media.media.extension.class">CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Admin\MediaAdminExtension</parameter>
+        <parameter key="sonata.media.admin.media.controller">CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController</parameter>
     </parameters>
 
     <services>
