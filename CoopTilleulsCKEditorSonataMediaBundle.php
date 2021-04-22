@@ -18,13 +18,4 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class CoopTilleulsCKEditorSonataMediaBundle extends Bundle
 {
-    /**
-     * Allows to extends the MediaAdmin controller.
-     *
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'SonataMediaBundle';
-    }
 }
