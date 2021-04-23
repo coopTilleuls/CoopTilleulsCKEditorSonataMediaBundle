@@ -45,7 +45,8 @@ jobs:
                     restore-keys: "php-${{ matrix.php-version }}"
 
             -   name: "configuring symfony dependencies"
-                run: composer require --no-update symfony/dependency-injection=${{ matrix.symfony-version }} symfony/http-foundation=${{ matrix.symfony-version }} symfony/http-kernel=${{ matrix.symfony-version }} symfony/security-core=${{ matrix.symfony-version }} symfony/config=${{ matrix.symfony-version }} 
+                run: |
+                    composer require --no-update symfony/dependency-injection=${{ matrix.symfony-version }} symfony/http-foundation=${{ matrix.symfony-version }} symfony/http-kernel=${{ matrix.symfony-version }} symfony/security-core=${{ matrix.symfony-version }} symfony/config=${{ matrix.symfony-version }}
 
             -   name: "install lowest dependencies"
                 if: ${{ matrix.dependencies == 'lowest' }}

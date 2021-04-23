@@ -23,7 +23,7 @@
         "sonata-project/admin-bundle": "^3.40"
     },
     "require-dev": {
-        "symfony/phpunit-bridge": "^3.4 || ^4.0"
+        "symfony/phpunit-bridge": "^3.4.19 || ^4.0"
     },
     "suggest": {
         "egeloen/ckeditor-bundle": "for easy Symfony integration"
