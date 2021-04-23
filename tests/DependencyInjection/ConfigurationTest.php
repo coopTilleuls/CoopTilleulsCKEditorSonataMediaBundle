@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the CKEditorSonataMediaBundle package.
  *
@@ -21,7 +23,7 @@ class ConfigurationTest extends TestCase
     {
         $processor = new Processor();
 
-        $config = $processor->processConfiguration(new Configuration(), array());
+        $config = $processor->processConfiguration(new Configuration(), []);
 
         $this->assertArrayHasKey('templates', $config);
         $this->assertArrayHasKey('layout', $config['templates']);
