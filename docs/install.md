@@ -6,11 +6,7 @@ Then, use [Composer](https://getcomposer.org/) to install CoopTilleulsCKEditorSo
 
     composer require tilleuls/ckeditor-sonata-media-bundle friendsofsymfony/ckeditor-bundle
 
-If you use Symfony <3.4 and PHP <7.1 do
-
-    composer require tilleuls/ckeditor-sonata-media-bundle friendsofsymfony/ckeditor-bundle:1.2
-
-Register the bundle in your AppKernel:
+Register the bundle in your `bundles.php`:
 
 ```php
 // app/AppKernel.php
@@ -46,9 +42,10 @@ $ composer update
 
 Add form theme to render the editor:
 
-Symfony 2/3: app/config/config.yml   
-Symfony 4: config/packages/twig.yaml
-```
+```yaml
+# Symfony 3: app/config/config.yml   
+# Symfony 4: config/packages/twig.yaml
+
 twig:
     form_themes:
         - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
@@ -57,7 +54,8 @@ twig:
 Configure FOSCKEditorBundle to use the bundle as file browser:
 
 ```yaml
-# app/config/config.yml
+# Symfony 3: app/config/config.yml
+# Symfony 4: config/packages/fos_ck_editor.yaml
 
 fos_ck_editor:
     default_config: default
@@ -81,26 +79,15 @@ fos_ck_editor:
 ## Extending SonataMedia
 
 ```
+# Symfony 3
 php app/console sonata:easy-extends:generate --dest=src SonataMediaBundle
+# Symfony 4
+php bin/console sonata:easy-extends:generate --dest=src SonataMediaBundle
 ```
 
-Then update your ApplicationSonataMediaBundle:
-
-```php
-// Application\Sonata\MediaBundle\ApplicationSonataMediaBundle.php
-
-    /**
-     * {@inheritdoc}
-     */
-    public function getParent()
-    {
-        return 'CoopTilleulsCKEditorSonataMediaBundle';
-    }
-```
-
-If you want to customize `MediaAdminController` you must extends `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle, and set parameter `sonata.media.admin.media.controller` to match your controller.
+If you want to customize `MediaAdminController` you must extend `CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Controller\MediaAdminController` in your bundle, and set parameter `sonata.media.admin.media.controller` to match your controller.
 
 ## Usage without FOSCKEditorBundle
 
-This bundle can be used with a custom install of CKEditor.
+This bundle can be used with a custom installation of CKEditor.
 Read the [file browser (uploader)](http://docs.cksource.com/CKEditor_3.x/Developers_Guide/File_Browser_(Uploader)) doc of CKEditor and the [architecture](architecture.md) of this bundle.

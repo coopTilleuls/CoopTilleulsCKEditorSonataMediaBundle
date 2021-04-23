@@ -23,19 +23,19 @@ use Symfony\Component\DependencyInjection\Loader;
  *
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
-class CoopTilleulsCKEditorSonataMediaExtension extends Extension
+final class CoopTilleulsCKEditorSonataMediaExtension extends Extension
 {
     /**
      * {@inheritdoc}
      */
-    public function load(array $configs, ContainerBuilder $container)
+    public function load(array $configs, ContainerBuilder $container): void
     {
         $configuration = new Configuration();
         $config = $this->processConfiguration($configuration, $configs);
 
         $container->setParameter('coop_tilleuls_ck_editor_sonata_media.configuration.templates', $config['templates']);
 
-        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__.'/../Resources/config'));
+        $loader = new Loader\XmlFileLoader($container, new FileLocator(__DIR__ . '/../Resources/config'));
         $loader->load('services.xml');
     }
 }
