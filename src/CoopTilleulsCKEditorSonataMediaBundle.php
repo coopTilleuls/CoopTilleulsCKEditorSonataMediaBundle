@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the CKEditorSonataMediaBundle package.
  *
@@ -16,6 +18,6 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
 /**
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
-class CoopTilleulsCKEditorSonataMediaBundle extends Bundle
+final class CoopTilleulsCKEditorSonataMediaBundle extends Bundle
 {
 }

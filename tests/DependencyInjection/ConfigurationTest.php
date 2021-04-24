@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the CKEditorSonataMediaBundle package.
  *
@@ -12,15 +14,16 @@
 namespace CoopTilleuls\Bundle\CKEditorSonataMediaBundle\Tests\DependencyInjection;
 
 use CoopTilleuls\Bundle\CKEditorSonataMediaBundle\DependencyInjection\Configuration;
+use PHPUnit\Framework\TestCase;
 use Symfony\Component\Config\Definition\Processor;
 
-class ConfigurationTest extends \PHPUnit_Framework_TestCase
+class ConfigurationTest extends TestCase
 {
     public function testOptions()
     {
         $processor = new Processor();
 
-        $config = $processor->processConfiguration(new Configuration(), array());
+        $config = $processor->processConfiguration(new Configuration(), []);
 
         $this->assertArrayHasKey('templates', $config);
         $this->assertArrayHasKey('layout', $config['templates']);

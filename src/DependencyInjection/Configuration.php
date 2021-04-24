@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the CKEditorSonataMediaBundle package.
  *
@@ -21,12 +23,12 @@ use Symfony\Component\Config\Definition\ConfigurationInterface;
  *
  * @author Kévin Dunglas <kevin@les-tilleuls.coop>
  */
-class Configuration implements ConfigurationInterface
+final class Configuration implements ConfigurationInterface
 {
     /**
      * {@inheritdoc}
      */
-    public function getConfigTreeBuilder()
+    public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('coop_tilleuls_ck_editor_sonata_media');
         if (method_exists($treeBuilder, 'getRootNode')) {
@@ -41,9 +43,9 @@ class Configuration implements ConfigurationInterface
                 ->arrayNode('templates')
                     ->addDefaultsIfNotSet()
                     ->children()
-                        ->scalarNode('layout')->defaultValue('@CoopTilleulsCKEditorSonataMedia/layout.html.twig')->cannotBeEmpty()->end()
-                        ->scalarNode('browser')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/browser.html.twig')->cannotBeEmpty()->end()
-                        ->scalarNode('upload')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/upload.html.twig')->cannotBeEmpty()->end()
+                        ->scalarNode('layout')->defaultValue('@CoopTilleulsCKEditorSonataMedia/layout.html.twig')->end()
+                        ->scalarNode('browser')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/browser.html.twig')->end()
+                        ->scalarNode('upload')->defaultValue('@CoopTilleulsCKEditorSonataMedia/MediaAdmin/upload.html.twig')->end()
                     ->end()
             ->end()
         ;

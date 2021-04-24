@@ -10,13 +10,13 @@ The bundle provides [SonataMediaBundle](https://sonata-project.org/bundles/media
 * Filter and order
 * Upload files and images to SonataMediaBundle directly form the CKEditor UI
 
-![Screenshot](Resources/doc/images/screenshot.png)
+![Screenshot](docs/images/screenshot.png)
 
 ## Docs
 
-1. [Installation](Resources/doc/install.md)
-2. [Architecture](Resources/doc/architecture.md)
-3. [Full configuration options](Resources/doc/configuration.md)
+1. [Installation](docs/install.md)
+2. [Architecture](docs/architecture.md)
+3. [Full configuration options](docs/configuration.md)
 
 ## Credits
 

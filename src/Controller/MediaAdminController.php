@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 /*
  * This file is part of the CKEditorSonataMediaBundle package.
  *
@@ -59,7 +61,7 @@ class MediaAdminController extends BaseMediaAdminController
         $datagrid->setValue('providerName', null, $this->admin->getPersistentParameter('provider'));
 
         // Store formats
-        $formats = array();
+        $formats = [];
         foreach ($datagrid->getResults() as $media) {
             $formats[$media->getId()] = $this->get('sonata.media.pool')->getFormatNamesByContext($media->getContext());
         }
@@ -69,13 +71,13 @@ class MediaAdminController extends BaseMediaAdminController
         // set the theme for the current Admin Form
         $this->setFormTheme($formView, $this->admin->getFilterTheme());
 
-        return $this->render($this->getTemplate('browser'), array(
+        return $this->render($this->getTemplate('browser'), [
             'action' => 'browser',
             'form' => $formView,
             'datagrid' => $datagrid,
             'formats' => $formats,
             'base_template' => $this->getTemplate('layout'),
-        ));
+        ]);
     }
 
     /**
@@ -109,17 +111,16 @@ class MediaAdminController extends BaseMediaAdminController
         $mediaManager->save($media, $context, $provider);
         $this->admin->createObjectSecurity($media);
 
-        return $this->render($this->getTemplate('upload'), array(
+        return $this->render($this->getTemplate('upload'), [
             'action' => 'list',
             'object' => $media,
-        ));
+        ]);
     }
 
     /**
      * Sets the admin form theme to form view. Used for compatibility between Symfony versions.
      *
-     * @param FormView $formView
-     * @param string   $theme
+     * @param string $theme
      */
     private function setFormTheme(FormView $formView, $theme)
     {
