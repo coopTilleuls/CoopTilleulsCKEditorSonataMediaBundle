@@ -1,27 +1,12 @@
 # Installation
 
-If not already done, install and configure [SonataMediaBundle](http://sonata-project.org/bundles/media/master/doc/index.html).
+If not already done, install and configure [SonataMediaBundle](https://docs.sonata-project.org/projects/SonataMediaBundle/en/3.x/index.html).
 
 Then, use [Composer](https://getcomposer.org/) to install CoopTilleulsCKEditorSonataMediaBundle and FOSCKEditorBundle:
 
     composer require tilleuls/ckeditor-sonata-media-bundle friendsofsymfony/ckeditor-bundle
 
 Register the bundle in your `bundles.php`:
-
-```php
-// app/AppKernel.php
-
-public function registerBundles()
-{
-    return array(
-        // ...
-        new CoopTilleuls\Bundle\CKEditorSonataMediaBundle\CoopTilleulsCKEditorSonataMediaBundle(),
-        new FOS\CKEditorBundle\FOSCKEditorBundle(),
-        // ...
-    );
-}
-```
-or 
 
 ```php
 // config/bundles.php
@@ -43,8 +28,7 @@ $ composer update
 Add form theme to render the editor:
 
 ```yaml
-# Symfony 3: app/config/config.yml   
-# Symfony 4: config/packages/twig.yaml
+# config/packages/twig.yaml
 
 twig:
     form_themes:
@@ -54,8 +38,7 @@ twig:
 Configure FOSCKEditorBundle to use the bundle as file browser:
 
 ```yaml
-# Symfony 3: app/config/config.yml
-# Symfony 4: config/packages/fos_ck_editor.yaml
+# config/packages/fos_ck_editor.yaml
 
 fos_ck_editor:
     default_config: default

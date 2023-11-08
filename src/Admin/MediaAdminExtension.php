@@ -24,9 +24,6 @@ use Sonata\AdminBundle\Route\RouteCollection;
  */
 class MediaAdminExtension extends AbstractAdminExtension
 {
-    /**
-     * {@inheritdoc}
-     */
     public function configureRoutes(AdminInterface $admin, RouteCollection $collection)
     {
         $collection->add('browser', 'browser');
