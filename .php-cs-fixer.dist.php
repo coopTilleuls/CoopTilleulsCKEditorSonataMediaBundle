@@ -10,8 +10,9 @@ $finder = PhpCsFixer\Finder::create()
     ->append([__FILE__])
 ;
 
-return PhpCsFixer\Config::create()
-    ->setUsingCache(true)
+$config = new PhpCsFixer\Config();
+
+return $config->setUsingCache(true)
     ->setRules([
         '@DoctrineAnnotation' => true,
         '@PSR2' => true,
